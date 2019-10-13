@@ -5,7 +5,7 @@ import com.nikgrozev.trafficcounter.db.Db;
 import com.nikgrozev.trafficcounter.db.Queries;
 
 /**
- * Synchronised in-memory DB.
+ * Background reporting.
  */
 public class ReportTask extends TimerTask {
     private final Db db;

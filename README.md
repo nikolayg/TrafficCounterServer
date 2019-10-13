@@ -37,8 +37,6 @@ curl -i --data "18673541_2016-12-01T05:15:34_M_58" http://localhost:8080/traffic
 
 # Tests
 
-...
-
 The application logic has been covered with JUnit tests. You can run them
 with:
 
