@@ -19,6 +19,13 @@ public class Db {
         storage.addAll(records);
     }
 
+    /**
+     * Executes a query. Every query is a function which takes Stream<VehicleRecord> as a parameter.
+     *  
+     * @param <QResult> - the result type of the query.
+     * @param query - the query function.
+     * @return the result of the query execution on the database.
+     */
     public synchronized <QResult> QResult runQuery(Function<Stream<VehicleRecord>, QResult> query) {
         return query.apply(this.storage.stream());
     }

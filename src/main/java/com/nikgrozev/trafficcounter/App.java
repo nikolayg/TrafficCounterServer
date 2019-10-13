@@ -24,9 +24,9 @@ public class App {
         // Start the server - it should use a thread pool for all the servelets
         server.start();
 
-        // Schedule the job every 10 minutes
+        // Schedule the job every 60 secs
         Timer timer = new Timer();
-        timer.schedule(new ReportTask(db), 0, 10 * 60 * 1000);
+        timer.schedule(new ReportTask(db), 0, 60 * 1000);
         // timer.schedule(new ReportTask(db), 0, 5 * 1000);
     }
 }
