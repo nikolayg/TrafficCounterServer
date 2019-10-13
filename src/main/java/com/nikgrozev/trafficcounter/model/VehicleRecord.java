@@ -8,8 +8,8 @@ import static org.assertj.core.api.Assertions.*;
 public class VehicleRecord {
     private final String counterId;
     private final long timeStamp;
-    private final VehicleSize vehicleSize;
-    private final int vehicleSpeed;
+    private final VehicleSize size;
+    private final int speed;
 
     public VehicleRecord(String counterId, long timeStamp, VehicleSize vehicleSize, int vehicleSpeed) {
         assertThat(counterId).isNotNull();
@@ -19,8 +19,8 @@ public class VehicleRecord {
 
         this.counterId = counterId;
         this.timeStamp = timeStamp;
-        this.vehicleSize = vehicleSize;
-        this.vehicleSpeed = vehicleSpeed;
+        this.size = vehicleSize;
+        this.speed = vehicleSpeed;
     }
 
     public String getCounterId() {
@@ -29,11 +29,11 @@ public class VehicleRecord {
     public long getTimeStamp() {
         return timeStamp;
     }
-    public VehicleSize getVehicleSize() {
-        return vehicleSize;
+    public VehicleSize getSize() {
+        return size;
     }
-    public int getVehicleSpeed() {
-        return vehicleSpeed;
+    public int getSpeed() {
+        return speed;
     }
 
     // Redifine equals, hashCode, and toString - good for testing
@@ -45,16 +45,16 @@ public class VehicleRecord {
         VehicleRecord other = (VehicleRecord) o;
         return this.counterId.equals(other.counterId) && 
             this.timeStamp == other.timeStamp && 
-            this.vehicleSize.equals(other.vehicleSize) && 
-            this.vehicleSpeed == other.vehicleSpeed;
+            this.size.equals(other.size) && 
+            this.speed == other.speed;
     }
 
     @Override
     public int hashCode() {
         return counterId.hashCode() ^ 
             Long.valueOf(timeStamp).hashCode() ^ 
-            vehicleSize.hashCode() ^ 
-            vehicleSpeed; 
+            size.hashCode() ^ 
+            speed; 
     }
 
     @Override
@@ -62,8 +62,8 @@ public class VehicleRecord {
         return String.format("counterId=%s, timeStamp=%d, vehicleSize=%s, vehicleSpeed=%d",
             counterId,
             timeStamp,
-            vehicleSize,
-            vehicleSpeed
+            size,
+            speed
         );
     }
 }
