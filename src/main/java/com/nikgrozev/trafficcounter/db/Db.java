@@ -1,6 +1,6 @@
 package com.nikgrozev.trafficcounter.db;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -13,7 +13,7 @@ import com.nikgrozev.trafficcounter.model.VehicleRecord;
  * TODO: Replace with an actual db and perhaps some cache. 
  */
 public class Db {
-    private List<VehicleRecord> storage = new LinkedList<>();
+    private List<VehicleRecord> storage = new ArrayList<>();
 
     public synchronized void add(List<VehicleRecord> records) {
         storage.addAll(records);

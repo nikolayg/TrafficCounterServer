@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nikgrozev.trafficcounter.db.Db;
 import com.nikgrozev.trafficcounter.parser.InvalidFormatException;
 import com.nikgrozev.trafficcounter.parser.VehicleRecordParser;
 
@@ -23,6 +24,12 @@ public class TrafficCounterServelet extends HttpServlet {
 
     private static final VehicleRecordParser PARSER = new VehicleRecordParser();
 
+    private final Db db;
+
+    public TrafficCounterServelet(Db db) {
+        this.db = db;
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO: Can use AsyncContex for further parallelisation - https://www.baeldung.com/jetty-embedded
@@ -32,7 +39,8 @@ public class TrafficCounterServelet extends HttpServlet {
             // Read the body
             String reqBody = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
 
-            PARSER.parseVehicleRecords(reqBody);
+            // Add the parsed records to the db;
+            db.add(PARSER.parseVehicleRecords(reqBody));
 
             // Signal success to the caller
             resp.setStatus(HttpServletResponse.SC_OK);

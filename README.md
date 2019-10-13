@@ -32,10 +32,10 @@ runnable jar file, and then execute it:
 java -jar build/install/TrafficCounterServer/lib/TrafficCounterServer-1.0.SNAPSHOT.jar
 
 # Starts the server at port 8080 and endpoint "trafficData":
-curl -i --data "..." http://localhost:8080/trafficData
+curl -i --data "18673541_2016-12-01T05:15:34_M_58" http://localhost:8080/trafficData
 ```
 
-# Implementation summary
+# Tests
 
 ...
 
